@@ -23,6 +23,7 @@ _LANGUAGE_LABELS: dict[str, str] = {
     "it": "Italiano",
     "ar": "العربية",
     "pl": "Polski",
+    "nl": "Nederlands",
     "ms": "Bahasa Melayu",
 }
 

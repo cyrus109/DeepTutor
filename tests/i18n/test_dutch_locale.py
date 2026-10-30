@@ -17,12 +17,20 @@ from deeptutor.api.routers.quiz_judge import (
     _JUDGE_SYSTEM_PROMPTS,
     SUPPORTED_JUDGE_LANGUAGES,
 )
+from deeptutor.core.response_languages import SUPPORTED_RESPONSE_LANGUAGES
 from deeptutor.runtime.banner import LABELS, labels_for
 from deeptutor.services.config.launch_settings import (
     _normalize_language as _launch_language,
 )
-from deeptutor.services.config.settings_spec import _LANGUAGE_CHOICES
-from deeptutor.services.settings.interface_settings import _normalize_language
+from deeptutor.services.config.settings_spec import (
+    _LANGUAGE_CHOICES,
+    _RESPONSE_LANGUAGE_CHOICES,
+)
+from deeptutor.services.prompt.language import language_directive, language_label
+from deeptutor.services.settings.interface_settings import (
+    _normalize_language,
+    _normalize_response_language,
+)
 
 WEB = pathlib.Path(__file__).resolve().parents[2] / "web"
 
@@ -93,3 +101,18 @@ def test_frontend_registers_dutch() -> None:
 
     init = (WEB / "i18n/init.ts").read_text(encoding="utf-8")
     assert "@/locales/nl/app.json" in init
+
+
+@pytest.mark.parametrize("raw", ["nl", "NL", "nl-NL", "dutch", "Nederlands"])
+def test_reply_language_accepts_dutch(raw: str) -> None:
+    assert _normalize_response_language(raw) == "nl"
+
+
+def test_reply_language_list_offers_dutch() -> None:
+    assert "nl" in SUPPORTED_RESPONSE_LANGUAGES
+    assert "nl" in {code for code, _label, _desc in _RESPONSE_LANGUAGE_CHOICES}
+
+
+def test_reply_directive_names_dutch() -> None:
+    assert language_label("nl") == "Nederlands"
+    assert "Nederlands" in language_directive("nl")

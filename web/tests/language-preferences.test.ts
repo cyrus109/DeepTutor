@@ -38,6 +38,8 @@ test("response language accepts and normalizes the extended registry", () => {
   assert.equal(resolveResponseLanguage("pt-BR", "en"), "pt");
   assert.equal(resolveResponseLanguage("ms-MY", "en"), "ms");
   assert.equal(resolveResponseLanguage("Malay", "en"), "ms");
+  assert.equal(resolveResponseLanguage("nl-NL", "en"), "nl");
+  assert.equal(resolveResponseLanguage("Dutch", "en"), "nl");
   assert.equal(resolveResponseLanguage("klingon", "zh"), "zh");
 });
 
@@ -46,6 +48,5 @@ test("legacy settings inherit the interface language when response language is m
   assert.equal(resolveResponseLanguage(undefined, "en"), "en");
   assert.equal(resolveResponseLanguage(null, "fr"), "fr");
   assert.equal(resolveResponseLanguage(null, "uk"), "uk");
-  // Dutch has a UI bundle but no reply language yet, so replies stay English.
-  assert.equal(resolveResponseLanguage(null, "nl"), "en");
+  assert.equal(resolveResponseLanguage(null, "nl"), "nl");
 });
