@@ -151,7 +151,9 @@ export function resolveResponseLanguage(
   if ((SUPPORTED_RESPONSE_LANGUAGE_CODES as readonly string[]).includes(base ?? "")) {
     return base as ResponseLanguage;
   }
-  return RESPONSE_LANGUAGE_ALIASES[code ?? ""] ?? normalizeLanguage(legacyLanguage);
+  // A UI language without a reply counterpart (Dutch) falls back to English.
+  const legacy = normalizeLanguage(legacyLanguage);
+  return RESPONSE_LANGUAGE_ALIASES[code ?? ""] ?? (isResponseLanguage(legacy) ? legacy : "en");
 }
 
 export function readStoredLanguage(): AppLanguage {

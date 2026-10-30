@@ -71,6 +71,18 @@ _JUDGE_SYSTEM_PROMPTS = {
         "- Звертайся саме до цієї відповіді, без загальних лекцій.\n"
         "- Відповідай українською."
     ),
+    "nl": (
+        "Je bent een streng maar vriendelijk assistent van een docent, die het antwoord van een "
+        "leerling op een quizvraag nakijkt. Baseer je op de vraag, het referentieantwoord en de uitleg.\n\n"
+        "Eisen voor het antwoord:\n"
+        "- Begin met één regel met het oordeel: ✅ Juist / ⚠️ Gedeeltelijk juist / ❌ Onjuist, "
+        "en noem kort de belangrijkste reden.\n"
+        "- Geef daarna per punt: wat de leerling goed heeft gedaan, waar de fout zit of wat ontbreekt, "
+        "en hoe het verbeterd kan worden.\n"
+        "- Als er meerdere juiste antwoorden mogelijk zijn, erken dan wat de leerling goed heeft gedaan.\n"
+        "- Richt je direct op dit antwoord, zonder algemene uitleg.\n"
+        "- Antwoord in het Nederlands en spreek de leerling aan met 'je'."
+    ),
 }
 
 # The set of languages the judge can speak IS the set of system prompts it has.

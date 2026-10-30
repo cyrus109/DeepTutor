@@ -7,7 +7,7 @@ import { resolveResponseLanguage } from "../context/app-shell-storage";
 import { APP_LANGUAGES, isAppLanguage, normalizeLanguage } from "../i18n/languages";
 
 test("the locale registry accepts every supported language", () => {
-  assert.deepEqual(APP_LANGUAGES.map(({ code }) => code), ["en", "zh", "fr", "de", "uk", "pl"]);
+  assert.deepEqual(APP_LANGUAGES.map(({ code }) => code), ["en", "zh", "fr", "de", "uk", "pl", "nl"]);
   for (const { code } of APP_LANGUAGES) assert.equal(isAppLanguage(code), true);
   assert.equal(isAppLanguage("xx"), false);
   assert.equal(normalizeLanguage("uk-UA"), "uk");
@@ -16,6 +16,9 @@ test("the locale registry accepts every supported language", () => {
   assert.equal(normalizeLanguage("pl-PL"), "pl");
   assert.equal(normalizeLanguage("Polish"), "pl");
   assert.equal(normalizeLanguage("Polski"), "pl");
+  assert.equal(normalizeLanguage("nl-NL"), "nl");
+  assert.equal(normalizeLanguage("Dutch"), "nl");
+  assert.equal(normalizeLanguage("Nederlands"), "nl");
 });
 
 test("response language remains independent from the interface language", () => {
@@ -43,4 +46,6 @@ test("legacy settings inherit the interface language when response language is m
   assert.equal(resolveResponseLanguage(undefined, "en"), "en");
   assert.equal(resolveResponseLanguage(null, "fr"), "fr");
   assert.equal(resolveResponseLanguage(null, "uk"), "uk");
+  // Dutch has a UI bundle but no reply language yet, so replies stay English.
+  assert.equal(resolveResponseLanguage(null, "nl"), "en");
 });

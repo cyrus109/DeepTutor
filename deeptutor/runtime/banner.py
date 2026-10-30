@@ -485,6 +485,130 @@ LABELS: dict[str, dict[str, str]] = {
         "start.port_kill_failed": "Не вдалося звільнити порт {port} (PID {pid}).",
         "start.port_freed": "Порт {port} звільнено.",
     },
+    "nl": {
+        "tagline": "Agent-native gepersonaliseerde tutoring",
+        "lab": "Data Intelligence Lab @ HKU",
+        # init
+        "init.mode": "Initialisatie van de werkruimte",
+        "init.workspace": "Werkruimte",
+        "init.note_settings_dir": "Instellingen worden opgeslagen onder data/user/settings.",
+        "init.cancelled": "Installatie geannuleerd. Er is niets opgeslagen.",
+        "init.step_ports": "Stap {n}/{total} · Poorten",
+        "init.step_llm": "Stap {n}/{total} · LLM-aanbieder",
+        "init.step_embedding": "Stap {n}/{total} · Embedding (RAG / Kennisbank)",
+        "init.step_search": "Stap {n}/{total} · Webzoeken",
+        "init.step_review": "Stap {n}/{total} · Controleren en opslaan",
+        "init.backend_port": "Backendpoort",
+        "init.frontend_port": "Frontendpoort",
+        "init.llm_section": "LLM-aanbieder",
+        "init.pick_provider": "Kies een LLM-aanbieder",
+        "init.pick_embedding_provider": "Kies een embedding-aanbieder",
+        "init.show_all": "Toon alle aanbieders",
+        "init.custom_provider": "Eigen / overig",
+        "init.skip_step": "Overslaan / later instellen",
+        "init.back": "Terug",
+        "init.skipped": "Overgeslagen — je kunt dit later instellen in de webinstellingen.",
+        "init.binding": "Koppeling",
+        "init.base_url": "Basis-URL",
+        "init.api_key": "API-sleutel",
+        "init.api_key_env_detected": "{env_var}={masked} gevonden in je omgeving. Gebruiken?",
+        "init.api_key_prompt": "API-sleutel (invoer verborgen, Enter om over te slaan)",
+        "init.api_key_reuse_llm": "De LLM-API-sleutel {masked} hergebruiken?",
+        "init.edit_base_url": "Basis-URL wijzigen?",
+        "init.new_base_url": "Nieuwe basis-URL",
+        "init.model": "Model",
+        "init.fetch_models": "Beschikbare modellen ophalen van {url} ...",
+        "init.fetch_models_ok": "{count} model(len) gevonden.",
+        "init.fetch_models_fail": "Modellen konden niet worden opgehaald ({error}). De vaste lijst wordt gebruikt.",
+        "init.pick_model": "Kies een model — of typ {marker} om je eigen model in te voeren",
+        "init.custom_model": "Naam van eigen model",
+        "init.embedding_section": "Embedding-aanbieder",
+        "init.embedding_endpoint": "Embedding-endpoint-URL",
+        "init.embedding_api_key": "Embedding-API-sleutel",
+        "init.embedding_model": "Embedding-model",
+        "init.embedding_dimension": "Embedding-dimensie (leeg voor automatisch)",
+        "init.search_section": "Webzoekaanbieder",
+        "init.pick_search_provider": "Kies een webzoekaanbieder",
+        "init.search_api_key_prompt": "API-sleutel (invoer verborgen, Enter om over te slaan)",
+        "init.search_base_url_prompt": "Basis-URL",
+        "init.search_no_key_note": "{label} heeft geen API-sleutel nodig.",
+        "init.search_disabled_note": "Webzoeken wordt uitgeschakeld. Agents slaan zoektools over.",
+        "init.review_search": "Zoeken",
+        "init.review_search_disabled": "uitgeschakeld",
+        "init.probe_offer": "Verbinding nu testen?",
+        "init.probe_running": "{what} testen ...",
+        "init.probe_ok": "{what} OK  ·  {ms}ms",
+        "init.probe_fail": "{what} mislukt: {error}",
+        "init.probe_retry": "API-sleutel opnieuw invoeren en nogmaals proberen?",
+        "init.copilot_reuse_login": "De GitHub Copilot-login voor {account} hergebruiken?",
+        "init.copilot_login_start": "GitHub-apparaatlogin starten ...",
+        "init.copilot_login_ok": "GitHub Copilot-login geslaagd voor {account}.",
+        "init.copilot_login_fail": "GitHub Copilot-login mislukt: {error}",
+        "init.review_title": "Controle",
+        "init.review_llm": "LLM",
+        "init.review_embedding": "Embedding",
+        "init.review_ports": "Poorten",
+        "init.review_ports_value": "backend {backend}, frontend {frontend}",
+        "init.confirm_save": "Deze instellingen opslaan?",
+        "init.saved": "Instellingen opgeslagen. Je kunt ze later wijzigen op de webinstellingenpagina of in data/user/settings/.",
+        "init.next_step": "Voer `deeptutor start` uit om DeepTutor te starten.",
+        "init.choice": "Keuze",
+        "init.choice_invalid": "Ongeldige keuze. Probeer het opnieuw.",
+        # start (launcher)
+        "start.mode": "Backend en frontend starten",
+        "start.backend": "Backend",
+        "start.browser_api": "Browser-API",
+        "start.frontend": "Frontend",
+        "start.workspace": "Werkruimte",
+        "start.frontend_runtime": "Frontend-runtime",
+        "start.press_ctrl_c": "Druk op Ctrl+C om te stoppen.",
+        "start.detached_started": "DeepTutor start op de achtergrond (launcher-PID {pid}).",
+        "start.detached_already_running": (
+            "Er draait al een losgekoppelde DeepTutor-launcher (PID {pid}). Log: {log}"
+        ),
+        "start.detached_log": "Log: {path}",
+        "start.detached_stop_hint": 'Stop hem met `deeptutor stop --home "{home}"`.',
+        "start.starting_backend": "Backend starten ...",
+        "start.starting_frontend": "Frontend starten ...",
+        "start.reusing_frontend": "Bestaande frontend op {url} wordt hergebruikt (PID {pid}).",
+        "start.restarting_frontend": (
+            "De bestaande frontend op {url} reageert niet; hij wordt opnieuw gestart (PID {pid})."
+        ),
+        "start.frontend_restart_failed": (
+            "De bestaande frontend op {url} reageert niet en kon niet automatisch worden gestopt. "
+            "Stop PID {pid} en voer `deeptutor start` opnieuw uit."
+        ),
+        "start.waiting_for": "Wachten op {name} op {url} ...",
+        "start.ready": "{name} is klaar.",
+        "start.open_in_browser": "Open {url} in je browser.",
+        "start.received_signal": "Signaal {signal} ontvangen; afsluiten ...",
+        "start.stopping": "{name} (PID {pid}) wordt gestopt",
+        "start.exited": "{name} is afgesloten met code {code}",
+        "stop.not_running": "Er draait geen losgekoppelde DeepTutor-launcher.",
+        "stop.requested": "Er is een nette stop aangevraagd bij launcher-PID {pid}.",
+        "stop.complete": "DeepTutor is gestopt.",
+        "stop.timeout": "Launcher-PID {pid} is niet op tijd gestopt. Controleer {log}.",
+        "start.not_ready": (
+            "{name} was niet binnen {timeout}s klaar. "
+            "Trage hardware of een werkruimte met gegevens die gemigreerd moeten worden, kan langer nodig hebben; "
+            "stel {env} in op een groter aantal seconden."
+        ),
+        "start.port_in_use": (
+            "DeepTutor kan niet starten omdat poort(en) al in gebruik zijn: {ports}. "
+            "Stop het bestaande proces of wijzig data/user/settings/system.json."
+        ),
+        "start.port_conflict_title": "Poortconflict gevonden:",
+        "start.port_conflict_line": "  {role}-poort {port} wordt gebruikt door:",
+        "start.port_conflict_proc": "    PID {pid} · {command}",
+        "start.port_conflict_unknown_proc": "    (procesinformatie niet beschikbaar)",
+        "start.port_option_change": "Poorten wijzigen (opgeslagen in data/user/settings/system.json)",
+        "start.port_option_kill": "Het bezette proces of de bezette processen stoppen en doorgaan",
+        "start.port_invalid": "Ongeldige poort: {value}. Voer een vrije poort in tussen 1 en 65535.",
+        "start.port_saved": "Poorten opgeslagen in {path}.",
+        "start.port_killing": "PID {pid} ({command}) wordt gestopt ...",
+        "start.port_kill_failed": "Poort {port} kon niet worden vrijgemaakt (PID {pid}).",
+        "start.port_freed": "Poort {port} vrijgegeven.",
+    },
 }
 
 
@@ -498,6 +622,8 @@ def _pick_language(language: str | None) -> str:
         return "de"
     if code in {"uk", "uk-ua", "ukrainian", "ua"}:
         return "uk"
+    if code in {"nl", "nl-nl", "nl-be", "dutch", "nederlands"}:
+        return "nl"
     return "en"
 
 
